@@ -8,6 +8,13 @@ create table catalogs (
 	unique unique_name(name(10))
 ) comment = 'разделы базы медиа';
 
+insert ignore into catalogs values
+	(default, 'audio'),
+	(default, 'foto'),
+	(default,'' ),
+	(default, 'video'),
+	(default,'' );
+
 drop table if exists foto;
 create table foto (
 	id serial primary key,
@@ -20,8 +27,8 @@ create table foto (
 ) comment = 'фото';
 
 
-drop table if exists videos;
-create table videos (
+drop table if exists video;
+create table video (
 	id serial primary key,
 	name varchar(255) comment 'название',
 	description text comment 'описание',
@@ -42,7 +49,8 @@ create table audio (
 	name varchar(255) comment 'название',
 	description text comment 'описание',
 	author text comment 'автор',
-	album text comment 'альбом',
+	album text comment 'название альбома',
+	year_record year comment 'год записи',
 	language_audio text comment 'язык',
 	duration float comment 'длительность',
 	format_audio text comment 'формат аудио',
@@ -52,6 +60,8 @@ create table audio (
 	key index_of_catalog_id(catalog_id)
 ) comment = 'аудио';
 
-insert into audio (name, language_audio, author) values ('deutchland', 'deutch', 'rammstein' );
+insert into audio (name, language_audio, author, year_record) values ('deutchland', 'deutch', 'rammstein', '2019' );
 select*from audio;
 
+update catalogs set name = 'empty' where name is null or name = '';
+select*from catalogs;
