@@ -14,12 +14,18 @@ __author__ = 'Dmitry Letyuk'
 
 # раскладываем число как строку, по буквам
 number = input('ввдетие число:\n\t')
+max_num = 0
 num = [] # на всякий случай
+
 for let in number:
-    num.append(int(let)) # как целые числа
+    let = int(let) #преобразование строки (букв) в целые числа
+    num.append(let) # добавляем с список
+    if let >= max_num:
+        max_num = let
     #print(int(let)) # как целые числа
-#print('максимальная цифра в числе:\n\t', sorted(num, reverse= True)[0])
-print('максимальная цифра в числе:\n\t', sorted(num)[-1])
+#print('максимальная цифра в числе:\n\t', sorted(num, reverse= True)[0]) #сортируем список, вывод задом наперед, первое значение
+print('максимальная цифра в числе:\n\t', sorted(num)[-1]) #сортируем список,выодим как есть, последнее значение
+print(f'максимальная цифра в числе:\n\t {max_num}')
 
 
 
