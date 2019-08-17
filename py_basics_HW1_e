@@ -30,9 +30,19 @@ for let in number:
 
 var_1 = int(input('Введите первое целое число:\n\t'))
 var_2 = int(input('Введите второе целое число:\n\t'))
+
 print( "initial:\n\t", var_1,",", var_2)
-var_1, var_2 = var_2, var_1 # меняем местами
+
+var_3 = var_1
+var_1 = var_2
+var_2 = var_3
+
 print( "modified:\n\t", var_1,",", var_2)
+
+
+# print( "initial:\n\t", var_1,",", var_2)
+# var_1, var_2 = var_2, var_1
+# print( "modified:\n\t", var_1,",", var_2)
 
 
 # Задача-3: Запросите у пользователя его возраст.
